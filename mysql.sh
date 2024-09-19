@@ -51,5 +51,10 @@ if [ $? -ne 0 ]
 then
     echo "$R Root password is not set $N, setting up now." | tee -a $LOG_FILE
     mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE
+    VALIDATE $? "Set up Root password"
+else
+    echo "Root Password already set, $Y Skipping $N" | tee -a $LOG_FILE
 fi
+
+
 
