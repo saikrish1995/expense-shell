@@ -46,7 +46,7 @@ VALIDATE $? "enabling mysqld"
 systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "starting mysqld"
 
-mysql -h 172.31.105.220 -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE
+mysql -h mysql.naveenganney.online -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     echo -e "$R Root password is not set $N, setting up now." | tee -a $LOG_FILE
