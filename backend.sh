@@ -68,6 +68,8 @@ VALIDATE $? "Extracting the backend application code"
 
 npm install &>>LOG_FILE
 
+#we are using/copying from another file backend.service and editing the mysql-db server IP in that file.
+#we are not supposed to edit files using VIM editor in the git folders.
 cp /home/ec2-user/expense-shell/backend.service /etc/systemd/system/backend.service
 
 #Load the schema before running backend
