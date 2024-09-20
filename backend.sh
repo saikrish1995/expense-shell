@@ -55,13 +55,13 @@ else
     echo -e "User Expense $G already created $Y .. SKIPPING $N" | tee -a $LOG_FILE
 fi
 
-mkdir -p /app
+mkdir -p /app &>>$LOG_FILE
 VALIDATE $? "Creating /app folder"
 
-curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE
 VALIDATE $? "Downloading Backend application code"
 
-cd /app
-
-unzip /tmp/backend.zip
+cd /app &>>$LOG_FILE
+rm -rf /app/*  #removes the existing code.
+unzip /tmp/backend.zip &>>$LOG_FILE
 VALIDATE $? "Extracting the backend application code"
